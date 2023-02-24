@@ -56,13 +56,18 @@ class UpdateView(View):
             return redirect('index')
         return render(request, 'update_product.html', context={'form': form})
 
-# class DeleteView(View):
-#     def get(self, request, pk):
-#         product = get_object_or_404(Product, pk=pk)
-#         return render(request, 'todo_confirm_delete.html', context={'product': product})
-#
-#
+
+class DeleteView(View):
+    def get(self, request, pk):
+        products = get_object_or_404(Product, pk=pk)
+        return render(request, 'product_confirm_delete.html', context={'products': products})
+
+    def post(self, request, pk):
+        products = get_object_or_404(Product, pk=pk)
+        products.delete()
+        return redirect('index')
+
 # def confirm_delete(request, pk):
-#     todo = get_object_or_404(product, pk=pk)
-#     todo.delete()
+#     products = get_object_or_404(Product, pk=pk)
+#     products.delete()
 #     return redirect('index')

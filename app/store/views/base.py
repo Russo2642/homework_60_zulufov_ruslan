@@ -7,7 +7,7 @@ from store.models import Product
 
 class IndexView(View):
     def get(self, request: WSGIRequest):
-        products = Product.objects.all()
+        products = Product.objects.exclude(is_deleted=True)
         context = {
             'products': products
         }
