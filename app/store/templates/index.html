@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block menu %}
+    <a href="{% url 'product_add' %}">Add Product</a>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Products</h1>
+        {% for product in products %}
+        <h4>Title: {{ product.title }}</h4>
+        <h4>Price: {{ product.price }}</h4>
+        <h4>Category: {{ product.category }}</h4>
+        <p>
+            <a href="{% url 'product_detail' product.pk %}">More...</a>
+        </p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

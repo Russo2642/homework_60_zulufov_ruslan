@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}ToDo Create{% endblock %}
+{% block content %}
 
-</body>
-</html>
+<div class="container">
+    <h1>Add Product</h1>
+    <div class="form">
+        <form action="{% url 'product_add' %}" method="post">
+            {% include 'partial/product_form.html' with button_text='Создать' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

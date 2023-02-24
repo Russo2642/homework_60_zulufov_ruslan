@@ -7,8 +7,8 @@ from store.models import Product
 
 class IndexView(View):
     def get(self, request: WSGIRequest):
-        product = Product.objects.all()
+        products = Product.objects.all()
         context = {
-            'product': product
+            'products': products
         }
         return render(request, 'index.html', context=context)

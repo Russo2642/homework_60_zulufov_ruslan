@@ -31,26 +31,26 @@ class AddView(View):
 
 class DetailView(View):
     def get(self, request, pk):
-        product = get_object_or_404(Product, pk=pk)
+        products = get_object_or_404(Product, pk=pk)
         return render(request, 'product.html', context={
-            'product': product
+            'products': products,
         })
 
 
 class UpdateView(View):
     def get(self, request, pk):
-        product = get_object_or_404(Product, pk=pk)
-        form = ProductForm(instance=product)
+        products = get_object_or_404(Product, pk=pk)
+        form = ProductForm(instance=products)
         return render(request, 'update_product.html',
                       context={
                           'form': form,
                           'choices': CategoryChoice.choices,
-                          'product': product
+                          'products': products
                       })
 
     def post(self, request, pk):
-        product = get_object_or_404(Product, pk=pk)
-        form = ProductForm(request.POST, instance=product)
+        products = get_object_or_404(Product, pk=pk)
+        form = ProductForm(request.POST, instance=products)
         if form.is_valid():
             form.save()
             return redirect('index')
