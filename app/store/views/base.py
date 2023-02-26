@@ -7,7 +7,11 @@ from store.models import Product
 
 class IndexView(View):
     def get(self, request: WSGIRequest):
-        products = Product.objects.filter(is_deleted=False).exclude(rest=0)
+        search_name = request.GET.get('search')
+        if search_name:
+            products = Product.objects.filter(is_deleted=False, title__icontains=search_name).exclude(rest=0)
+        else:
+            products = Product.objects.filter(is_deleted=False).exclude(rest=0)
         context = {
             'products': products
         }

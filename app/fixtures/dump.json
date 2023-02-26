@@ -1,0 +1,82 @@
+[
+{
+  "model": "store.product",
+  "pk": 3,
+  "fields": {
+    "title": "Iphone 13",
+    "description": "Green color, 256GB memory",
+    "image": "https://www.technodom.kz/_next/image?url=https%3A%2F%2Fapi.technodom.kz%2Ff3%2Fapi%2Fv1%2Fimages%2F800%2F800%2F258956_1.jpg&w=3840&q=85",
+    "category": "PHONE",
+    "rest": 3,
+    "price": "10000.00",
+    "is_deleted": true,
+    "created_at": "2023-02-24T15:45:34.665Z",
+    "updated_at": "2023-02-26T06:41:48.339Z",
+    "deleted_at": "2023-02-26T06:41:48.339Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 4,
+  "fields": {
+    "title": "Iphone",
+    "description": "Зелёный цвет, 256гб памяти",
+    "image": "https://hozvo.ru/photos/storage/bitrix/upload/medialibrary/3be/yabloko.jpg",
+    "category": "PHONE",
+    "rest": 3,
+    "price": "50000.00",
+    "is_deleted": true,
+    "created_at": "2023-02-26T06:39:05.785Z",
+    "updated_at": "2023-02-26T06:46:52.536Z",
+    "deleted_at": "2023-02-26T06:46:52.536Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 5,
+  "fields": {
+    "title": "Samsung",
+    "description": "Чёрный цвет, 128гб памяти",
+    "image": "https://fora.kz/images/content/products/627529/samsung-galaxy-s22-256-gb-sm-s901bzkgskz-phantom-black_6204af7e477bc.jpg",
+    "category": "PHONE",
+    "rest": 1,
+    "price": "30000.00",
+    "is_deleted": false,
+    "created_at": "2023-02-26T06:45:27.530Z",
+    "updated_at": "2023-02-26T06:45:27.530Z",
+    "deleted_at": null
+  }
+},
+{
+  "model": "store.product",
+  "pk": 6,
+  "fields": {
+    "title": "Ноутбук Леново Легион",
+    "description": "Intel Core i5 10300H, NVIDIA GeForce GTX1650Ti",
+    "image": "https://www.mechta.kz/images/product/20591/30000003762_1.jpg",
+    "category": "LAPTOP",
+    "rest": 3,
+    "price": "200000.00",
+    "is_deleted": false,
+    "created_at": "2023-02-26T06:52:48.935Z",
+    "updated_at": "2023-02-26T06:52:48.935Z",
+    "deleted_at": null
+  }
+},
+{
+  "model": "store.product",
+  "pk": 7,
+  "fields": {
+    "title": "Фотоаппарат Canon",
+    "description": "Отличная камера",
+    "image": "https://pspdf.kz/image/catalog/products/camera/canon/m50markii/1.jpg",
+    "category": "CAMERA",
+    "rest": 2,
+    "price": "15000.00",
+    "is_deleted": false,
+    "created_at": "2023-02-26T06:54:47.643Z",
+    "updated_at": "2023-02-26T06:54:47.643Z",
+    "deleted_at": null
+  }
+}
+]

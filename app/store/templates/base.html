@@ -8,14 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>{% block title %}ToDo List{% endblock %}</title>
+    <title>{% block title %}Product List{% endblock %}</title>
 </head>
 <body>
 <nav class="navbar">
     <div class="container">
         <ul class="menu">
             <li>
-                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'index' %}">Главная</a>
                 {% block menu %}{% endblock %}
             </li>
         </ul>

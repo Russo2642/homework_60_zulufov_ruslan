@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}ToDo Create{% endblock %}
+{% block title %}Product Update{% endblock %}
 {% block content %}
 
 <div class="container">
-    <h1>Add Product</h1>
-    <div class="form">
-        <form action="{% url 'product_update' products.pk%}" method="post">
-            {% include 'partial/product_form.html' with button_text='Редактировать' %}
-        </form>
+    <div class="row">
+        <h1>Редактирование товара</h1>
+        <div class="form">
+            <form action="{% url 'product_update' products.pk%}" method="post">
+                {% include 'partial/product_form.html' with button_text='Редактировать' %}
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

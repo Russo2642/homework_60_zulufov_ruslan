@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}ToDo confirm delete{% endblock %}
+{% block title %}Product confirm delete{% endblock %}
 {% block menu %}
 {% endblock %}
 {% block content %}
 <div class="container">
     <div class="row">
-        <h1>Вы точно хотите удалить продукт ?</h1>
-        <p>Title: {{ products.title }}</p>
-        <p>Description: {{ products.description }}</p>
-        <p>Category: {{ products.category }}</p>
+        <h1>Вы точно хотите удалить товар ?</h1>
+        <p>{{ products.title }}</p>
+        <p>Описание: {{ products.description }}</p>
+        <p>Категория: {{ products.category }}</p>
         <form action="{% url 'confirm_delete' products.pk %}" method="post">
             {% csrf_token %}
             <p><input type="submit" value="Удалить"></p>

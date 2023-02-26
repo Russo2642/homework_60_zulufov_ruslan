@@ -1,19 +1,42 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block menu %}
-    <a href="{% url 'product_add' %}">Add Product</a>
+<a href="{% url 'product_add' %}">Добавить товар</a>
 {% endblock %}
 {% block content %}
 <div class="container">
     <div class="row">
-        <h1>Products</h1>
+        <h1>Товары</h1>
+        <form class="form-inline" action="{% url 'index' %}" method="get">
+            <div class="col-4">
+                <div class="input-group">
+                    <input class="form-control" name="search" type="search" placeholder="Введите название товара">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-success" type="submit">Поиск</button>
+                    </span>
+                </div>
+            </div>
+        </form>
         {% for product in products %}
-        <h4>Title: {{ product.title }}</h4>
-        <h4>Price: {{ product.price }}</h4>
-        <h4>Category: {{ product.category }}</h4>
-        <p>
-            <a href="{% url 'product_detail' product.pk %}">More...</a>
-        </p>
+        <div class="products">
+            <div class="main-img">
+                <img src="{{ product.image }}" alt="">
+            </div>
+            <h4>{{ product.title }}</h4>
+            <h4>Цена: {{ product.price }}</h4>
+            {% if product.category == "PHONE" %}
+            <h4>Категория: Телефон</h4>
+            {% elif product.category == "LAPTOP" %}
+            <h4>Категория: Ноутбук</h4>
+            {% elif product.category == "CAMERA" %}
+            <h4>Категория: Фотокамера</h4>
+            {% else %}
+            <h4>Категория: Разное</h4>
+            {% endif %}
+            <p>
+                <a href="{% url 'product_detail' product.pk %}">Подробнее...</a>
+            </p>
+        </div>
         {% endfor %}
     </div>
 </div>

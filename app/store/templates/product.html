@@ -1,22 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}Product{% endblock %}
 {% block menu %}
-<a href="{% url 'product_add' %}">Add Product</a>
-<a href="{% url 'product_update' products.pk %}">Update Product</a>
-<a href="{% url 'product_delete' products.pk %}">Delete Product</a>
+<a href="{% url 'product_add' %}">Добавить товар</a>
+<a href="{% url 'product_update' products.pk %}">Редактировать товар</a>
+<a href="{% url 'product_delete' products.pk %}">Удалить товар</a>
 
 {% endblock %}
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <h1>Product</h1>
-        <p><img src="{{ products.image }}" alt=""></p>
-        <p>Title: {{ products.title }}</p>
-        <p>Description: {{ products.description }}</p>
-        <p>Category: {{ products.category }}</p>
-        <p>Rest: {{ products.rest }}</p>
-        <p>Price: {{ products.price }}</p>
+    <div class="details">
+        <div class="details-img">
+            <img src="{{ products.image }}" alt="">
+        </div>
+        <div class="details-content">
+            <h3>{{ products.title }}</h3>
+            <h4>{{ products.category }}</h4>
+            <h4>Остаток: {{ products.rest }}</h4>
+            <h5>Цена: <span>{{ products.price }}$</span></h5>
+            <p>Описание: {{ products.description }}</p>
+            <p>добавлено {{ products.created_at }}</p>
+        </div>
     </div>
 </div>
 {% endblock %}
