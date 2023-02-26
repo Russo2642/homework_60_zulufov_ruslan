@@ -18,7 +18,7 @@ class Product(models.Model):
     category = models.CharField(max_length=50, null=False, blank=False, verbose_name="Категория",
                                 choices=CategoryChoice.choices, default=CategoryChoice.OTHER)
     rest = models.IntegerField(null=False, blank=False, verbose_name="Остаток")
-    price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Стоимость")
+    price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Стоимость")
     is_deleted = models.BooleanField(verbose_name='удалено', null=False, default=False)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата и время создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата и время обновления")
@@ -35,3 +35,4 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        ordering = ['category', 'title']

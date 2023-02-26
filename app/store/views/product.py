@@ -67,7 +67,3 @@ class DeleteView(View):
         products.delete()
         return redirect('index')
 
-# def confirm_delete(request, pk):
-#     products = get_object_or_404(Product, pk=pk)
-#     products.delete()
-#     return redirect('index')
