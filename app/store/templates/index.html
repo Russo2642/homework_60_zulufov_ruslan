@@ -24,15 +24,7 @@
             </div>
             <h4>{{ product.title }}</h4>
             <h4>Цена: {{ product.price }}</h4>
-            {% if product.category == "PHONE" %}
-            <h4>Категория: Телефон</h4>
-            {% elif product.category == "LAPTOP" %}
-            <h4>Категория: Ноутбук</h4>
-            {% elif product.category == "CAMERA" %}
-            <h4>Категория: Фотокамера</h4>
-            {% else %}
-            <h4>Категория: Разное</h4>
-            {% endif %}
+            <h4>Категория: {{ product.get_category_display }}</h4>
             <p>
                 <a href="{% url 'product_detail' product.pk %}">Подробнее...</a>
             </p>

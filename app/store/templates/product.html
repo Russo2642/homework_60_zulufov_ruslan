@@ -15,7 +15,7 @@
         </div>
         <div class="details-content">
             <h3>{{ products.title }}</h3>
-            <h4>{{ products.category }}</h4>
+            <h4>Категория: {{ products.get_category_display }}</h4>
             <h4>Остаток: {{ products.rest }}</h4>
             <h5>Цена: <span>{{ products.price }}$</span></h5>
             <p>Описание: {{ products.description }}</p>
