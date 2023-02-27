@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block menu %}
+<a href="{% url 'product_add' %}">Добавить товар</a>
+<li><a href="#">Категории</a>
+    <ul class="dropdown">
+        {% for cat in choices %}
+        <li>
+            <a href="{% url 'categories' cat.0%}">{{ cat.1 }}</a>
+        </li>
+        {% endfor %}
+        </li>
+    </ul>
+    {% endblock %}
+    {% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Товары</h1>
+        <form class="form-inline" action="{% url 'index' %}" method="get">
+            <div class="col-4">
+                <div class="input-group">
+                    <input class="form-control" name="search" type="search" placeholder="Введите название товара">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-success" type="submit">Поиск</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+
+        {% for product in products %}
+        <div class="products">
+            <div class="main-img">
+                <img src="{{ product.image }}" alt="">
+            </div>
+            <h4>{{ product.title }}</h4>
+            <h4>Цена: {{ product.price }}</h4>
+            <h4>Категория: {{ product.get_category_display }}</h4>
+            <p>
+                <a href="{% url 'product_detail' product.pk %}">Подробнее...</a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

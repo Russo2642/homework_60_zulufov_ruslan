@@ -8,7 +8,7 @@
         <h1>Вы точно хотите удалить товар ?</h1>
         <p>{{ products.title }}</p>
         <p>Описание: {{ products.description }}</p>
-        <p>Категория: {{ products.category }}</p>
+        <p>Категория: {{ products.get_category_display }}</p>
         <form action="{% url 'confirm_delete' products.pk %}" method="post">
             {% csrf_token %}
             <p><input type="submit" value="Удалить"></p>

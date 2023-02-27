@@ -2,7 +2,7 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render
 from django.views import View
 
-from store.models import Product
+from store.models import Product, CategoryChoice
 
 
 class IndexView(View):
@@ -13,6 +13,7 @@ class IndexView(View):
         else:
             products = Product.objects.filter(is_deleted=False).exclude(rest=0)
         context = {
-            'products': products
+            'products': products,
+            'choices': CategoryChoice.choices
         }
         return render(request, 'index.html', context=context)

@@ -3,9 +3,12 @@ from django.urls import path
 from store.views.base import IndexView
 from store.views.product import AddView, DetailView, UpdateView, DeleteView
 
+from store.views.category import CategoryView
+
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('products/', IndexView.as_view(), name='products'),
+    path('products/<str:category>', CategoryView.as_view(), name='categories'),
     path('product/add/', AddView.as_view(), name='product_add'),
     path('product/<int:pk>', DetailView.as_view(), name='product_detail'),
     path('product/<int:pk>/update/', UpdateView.as_view(), name='product_update'),

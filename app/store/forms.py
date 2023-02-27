@@ -3,7 +3,8 @@ from store.models import Product
 
 
 class ProductForm(forms.ModelForm):
-    rest = forms.IntegerField(min_value=1, error_messages={'min_value': 'Остаток не может быть меньше единицы.'})
+    rest = forms.IntegerField(label='Остаток', min_value=1,
+                              error_messages={'min_value': 'Остаток не может быть меньше единицы.'})
 
     class Meta:
         model = Product

@@ -3,8 +3,8 @@
 {% block content %}
 
 <div class="container">
-    <h1>Add Product</h1>
     <div class="form">
+        <h1>Добавление товара</h1>
         <form action="{% url 'product_add' %}" method="post">
             {% include 'partial/product_form.html' with button_text='Создать' %}
         </form>
