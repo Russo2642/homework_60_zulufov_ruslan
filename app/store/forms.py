@@ -17,3 +17,7 @@ class ProductForm(forms.ModelForm):
             'rest': 'Остаток',
             'price': 'Цена'
         }
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=20, required=False, label='Найти')

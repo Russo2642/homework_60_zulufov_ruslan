@@ -17,16 +17,7 @@
     <div class="container">
         <div class="row">
             <h1>Товары</h1>
-            <form class="form-inline" action="{% url 'index' %}" method="get">
-                <div class="col-4">
-                    <div class="input-group">
-                        <input class="form-control" name="search" type="search" placeholder="Введите название товара">
-                        <span class="input-group-btn">
-                        <button class="btn btn-outline-success" type="submit">Поиск</button>
-                    </span>
-                    </div>
-                </div>
-            </form>
+            {% include 'partial/search.html' %}
 
             {% for product in products %}
             <div class="products">
@@ -41,6 +32,9 @@
                 </p>
             </div>
             {% endfor %}
+            {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+            {% endif %}
         </div>
     </div>
     {% endblock %}

@@ -2,8 +2,8 @@
 {% block title %}Product{% endblock %}
 {% block menu %}
 <a href="{% url 'product_add' %}">Добавить товар</a>
-<a href="{% url 'product_update' products.pk %}">Редактировать товар</a>
-<a href="{% url 'product_delete' products.pk %}">Удалить товар</a>
+<a href="{% url 'product_update' product.pk %}">Редактировать товар</a>
+<a href="{% url 'product_delete' product.pk %}">Удалить товар</a>
 
 {% endblock %}
 {% block content %}
@@ -11,15 +11,15 @@
 <div class="container">
     <div class="details">
         <div class="details-img">
-            <img src="{{ products.image }}" alt="">
+            <img src="{{ product.image }}" alt="">
         </div>
         <div class="details-content">
-            <h3>{{ products.title }}</h3>
-            <h4>Категория: {{ products.get_category_display }}</h4>
-            <h4>Остаток: {{ products.rest }}</h4>
-            <h5>Цена: <span>{{ products.price }}$</span></h5>
-            <p>Описание: {{ products.description }}</p>
-            <p>добавлено {{ products.created_at }}</p>
+            <h3>{{ product.title }}</h3>
+            <h4>Категория: {{ product.get_category_display }}</h4>
+            <h4>Остаток: {{ product.rest }}</h4>
+            <h5>Цена: <span>{{ product.price }}$</span></h5>
+            <p>Описание: {{ product.description }}</p>
+            <p>добавлено {{ product.created_at }}</p>
         </div>
     </div>
 </div>
