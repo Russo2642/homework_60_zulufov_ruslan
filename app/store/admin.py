@@ -1,6 +1,8 @@
 from django.contrib import admin
 from store.models import Product
 
+from store.models.cart import Cart
+
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
@@ -13,4 +15,9 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('id', 'title')
 
 
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'quantity')
+
+
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Cart, CartAdmin)

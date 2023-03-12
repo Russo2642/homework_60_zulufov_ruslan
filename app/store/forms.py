@@ -21,3 +21,7 @@ class ProductForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=20, required=False, label='Найти')
+
+
+class CartAddProductForm(forms.Form):
+    quantity = forms.DecimalField(label='Количество')
