@@ -1,19 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
-{% block menu %}
-<a href="{% url 'product_add' %}">Добавить товар</a>
-<li><a href="#">Категории</a>
-    <ul class="dropdown">
-        {% for cat in choices %}
-        <li>
-            <a href="{% url 'categories' cat.0%}">{{ cat.1 }}</a>
-        </li>
-        {% endfor %}
-        </li>
-    </ul>
-    {% endblock %}
-    {% block content %}
-
+{% block menu %}{% endblock %}
+{% block content %}
     <div class="container">
         <table>
             <tr>
@@ -21,6 +9,7 @@
                 <th>Количество</th>
                 <th>Цена за единицу</th>
                 <th>Сумма</th>
+                <th></th>
             </tr>
             {% for c in carts %}
             <tr>
@@ -28,6 +17,12 @@
                 <td>{{ c.quantity }}</td>
                 <td>{{ c.product.price }}</td>
                 <td>{{ c.total_price }}</td>
+                <td>
+                     <form method="POST" action="{% url 'cart_delete' c.pk %}">
+                         {% csrf_token %}
+                         <input type="submit" class="btn btn-danger" value="Удалить">
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </table>

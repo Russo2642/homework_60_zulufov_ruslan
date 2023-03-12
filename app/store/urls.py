@@ -1,13 +1,10 @@
 from django.urls import path
-
 from store.views.base import IndexView
-from store.views.product import ProductAddView, ProductDetailView, ProductUpdateView, ProductDeleteView
-
-from store.views.category import CategoryView
-
-from store.views.cart import CartDetailView
-
 from store.views.cart import CartAddView
+from store.views.cart import CartDeleteView
+from store.views.cart import CartDetailView
+from store.views.category import CategoryView
+from store.views.product import ProductAddView, ProductDetailView, ProductUpdateView, ProductDeleteView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -22,5 +19,6 @@ urlpatterns = [
 
 urlpatterns += [
     path('cart/', CartDetailView.as_view(), name='cart_detail'),
-    path('cart/add/<int:pk>/', CartAddView.as_view(), name='cart_add')
+    path('cart/add/<int:pk>/', CartAddView.as_view(), name='cart_add'),
+    path('cart/delete/<int:pk>/', CartDeleteView.as_view(), name='cart_delete'),
 ]

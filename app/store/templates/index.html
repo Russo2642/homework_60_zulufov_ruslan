@@ -2,15 +2,16 @@
 {% block title %}Home{% endblock %}
 {% block menu %}
 <a href="{% url 'product_add' %}">Добавить товар</a>
-<li><a href="#">Категории</a>
-    <ul class="dropdown">
+<li class="cat-btn">
+    <span>Категории</span>
+    <ul class="cat-target">
         {% for cat in choices %}
         <li>
             <a href="{% url 'categories' cat.0%}">{{ cat.1 }}</a>
         </li>
         {% endfor %}
-        </li>
     </ul>
+</li>
     {% endblock %}
     {% block content %}
 
@@ -31,11 +32,11 @@
                     <a href="{% url 'product_detail' product.pk %}">Подробнее...</a>
                 </p>
                 <p>
-                    <form action="{% url 'cart_add' product.id %}" method="post">
-                        {{ cart_product_form }}
-                        {% csrf_token %}
-                        <input type="submit" class="btn btn-success" value="Добавить в корзину">
-                    </form>
+                <form action="{% url 'cart_add' product.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-success" value="Добавить в корзину">
+                </form>
                 </p>
             </div>
             {% endfor %}

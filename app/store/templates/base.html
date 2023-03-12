@@ -8,22 +8,49 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
     <title>{% block title %}Product List{% endblock %}</title>
 </head>
 <body>
-<nav class="navbar">
+
+
+<header>
     <div class="container">
-        <ul class="menu">
-            <li>
-                <a href="{% url 'index' %}">Главная</a>
-                <a href="{% url 'cart_detail' %}">Корзина</a>
-                {% block menu %}{% endblock %}
-            </li>
-        </ul>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">Главная</a>
+                </li>
+                <li>
+                    {% block menu %}{% endblock %}
+                </li>
+            </ul>
+        </nav>
+        <a class="basket" href="{% url 'cart_detail' %}">
+            <i class="fa-solid fa-cart-shopping"></i> <span>0</span>
+        </a>
     </div>
-</nav>
+</header>
+
+
 <div class="container">
     {% block content %}{% endblock %}
 </div>
+
+<script>
+        let categoryElement = {
+            btn: document.querySelector('.cat-btn > span'),
+            target: document.querySelector('.cat-target')
+        }
+        categoryElement.btn.addEventListener('click', (e) => {
+            console.log('asd');
+            categoryElement.target.classList.toggle('cat-show')
+        })
+
+
+
+</script>
+
 </body>
 </html>

@@ -1,12 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse
 from django.views import View
-from django.views.generic import ListView
-
-from store.models import Cart
-
-from store.models import Product
-
+from django.views.generic import ListView, DeleteView
 from store.forms import CartAddProductForm
+from store.models import Cart
+from store.models import Product
 
 
 class CartDetailView(ListView):
@@ -32,3 +30,10 @@ class CartAddView(View):
                     quantity=cd['quantity']
                 )
         return redirect('index')
+
+
+class CartDeleteView(DeleteView):
+    model = Cart
+
+    def get_success_url(self):
+        return reverse('cart_detail')
