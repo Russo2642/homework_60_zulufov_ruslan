@@ -205,3 +205,8 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+#id_quantity {
+    width: 80px
+}
+

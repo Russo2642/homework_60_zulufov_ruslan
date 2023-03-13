@@ -1,4 +1,5 @@
 from django import forms
+from store.models import Order
 from store.models import Product
 
 
@@ -8,7 +9,7 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ('title', 'description', 'image', 'category', 'rest', 'price')
+        fields = ['title', 'description', 'image', 'category', 'rest', 'price']
         labels = {
             'title': 'Название',
             'description': 'Описание',
@@ -24,4 +25,15 @@ class SearchForm(forms.Form):
 
 
 class CartAddProductForm(forms.Form):
-    quantity = forms.DecimalField(label='Количество')
+    quantity = forms.DecimalField(label='Количество', min_value=1)
+
+
+class OrderProductForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['name', 'phone', 'address']
+        labels = {
+            'name': 'Имя',
+            'phone': 'Телефон',
+            'address': 'Адрес'
+        }

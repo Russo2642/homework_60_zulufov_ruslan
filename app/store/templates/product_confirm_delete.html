@@ -11,8 +11,8 @@
         <p>Категория: {{ product.get_category_display }}</p>
         <form action="{% url 'confirm_delete' product.pk %}" method="post">
             {% csrf_token %}
-            <p><input type="submit" value="Удалить"></p>
-            <p><a href="{% url 'index' %}">Отменить</a></p>
+            <p><input class="btn btn-danger" type="submit" value="Удалить"></p>
+            <p><a class="btn btn-secondary" href="{% url 'index' %}">Отменить</a></p>
         </form>
     </div>
 </div>

@@ -6,7 +6,7 @@
     <div class="form">
         <h1>Добавление товара</h1>
         <form action="{% url 'product_add' %}" method="post">
-            {% include 'partial/product_form.html' with button_text='Создать' %}
+            {% include 'partial/product_form.html' with button_text='Создать' button_class="btn btn-success" %}
         </form>
     </div>
 </div>

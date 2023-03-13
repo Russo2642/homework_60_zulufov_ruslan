@@ -22,13 +22,18 @@ class CartAddView(View):
             cd = form.cleaned_data
             if cart:
                 for c in cart:
-                    c.quantity += cd['quantity']
-                    c.save()
+                    if product.rest >= c.quantity:
+                        c.quantity += cd['quantity']
+                        c.save()
+                    else:
+                        return redirect('index')
             else:
-                cart.create(
-                    product=product,
-                    quantity=cd['quantity']
-                )
+                if product not in cart and product.rest > 0:
+                    if product.rest >= cd['quantity']:
+                        cart.create(
+                            product=product,
+                            quantity=cd['quantity']
+                        )
         return redirect('index')
 
 

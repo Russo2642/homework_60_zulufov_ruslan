@@ -2,30 +2,32 @@
 {% block title %}Home{% endblock %}
 {% block menu %}{% endblock %}
 {% block content %}
-    <div class="container">
-        <table>
-            <tr>
-                <th>Наименование</th>
-                <th>Количество</th>
-                <th>Цена за единицу</th>
-                <th>Сумма</th>
-                <th></th>
-            </tr>
-            {% for c in carts %}
-            <tr>
-                <td>{{ c.product.title }}</td>
-                <td>{{ c.quantity }}</td>
-                <td>{{ c.product.price }}</td>
-                <td>{{ c.total_price }}</td>
-                <td>
-                     <form method="POST" action="{% url 'cart_delete' c.pk %}">
-                         {% csrf_token %}
-                         <input type="submit" class="btn btn-danger" value="Удалить">
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-        <p>Итого: {{ carts.total_price_for_all }}</p>
-    </div>
-    {% endblock %}
+<div class="container">
+    <table>
+        <tr>
+            <th>Наименование</th>
+            <th>Количество</th>
+            <th>Цена за единицу</th>
+            <th>Сумма</th>
+            <th></th>
+        </tr>
+        {% for c in carts %}
+        <tr>
+            <td>{{ c.product.title }}</td>
+            <td>{{ c.quantity }}</td>
+            <td>{{ c.product.price }}</td>
+            <td>{{ c.total_price }}</td>
+            <td>
+                <form method="POST" action="{% url 'cart_delete' c.pk %}">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" value="Удалить">
+                </form>
+            </td>
+        </tr>
+        {% empty %}
+        <h1>Ваша корзина пустая!</h1>
+        {% endfor %}
+    </table>
+    <a href="{% url 'order_add' %}" class="btn btn-primary">Оформить заказ</a>
+</div>
+{% endblock %}
