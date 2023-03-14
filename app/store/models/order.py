@@ -3,7 +3,7 @@ from django.db import models
 
 class Order(models.Model):
     cart = models.ManyToManyField(
-        'store.Cart',
+        'store.Product',
         related_name='order',
     )
     name = models.CharField(
@@ -32,9 +32,11 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
+        ordering = ['-created_at']
 
     def get_products(self):
-        return "\n".join([t.product.title for t in self.cart.all()])
+        for product in self.cart.all():
+            return product.title
 
     get_products.short_description = "Продукт"
 
